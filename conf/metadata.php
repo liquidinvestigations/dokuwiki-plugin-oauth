@@ -50,6 +50,8 @@ $meta['doorkeeper-secret']   = array('string');
 $meta['doorkeeper-authurl']  = array('string');
 $meta['doorkeeper-tokenurl'] = array('string');
 $meta['mailRestriction']     = array('string','_pattern' => '!^(@[^,@]+(\.[^,@]+)+(,|$))*$!'); // https://regex101.com/r/mG4aL5/3
+$meta['liquid-key']          = array('string');
+$meta['liquid-secret']       = array('string');
 $meta['singleService']       = array('multichoice',
                                      '_choices' => array(
                                          '',
@@ -60,4 +62,5 @@ $meta['singleService']       = array('multichoice',
                                          'Github',
                                          'Yahoo',
                                          'Doorkeeper',
+                                         'Liquid',
                                          'Keycloak'));

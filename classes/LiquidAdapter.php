@@ -18,7 +18,9 @@ class LiquidAdapter extends AbstractAdapter {
         $data = array();
 
         /** var OAuth\OAuth2\Service\Generic $this->oAuth */
-        $result = $JSON->decode($this->oAuth->request('http://liquid.example.org/accounts/profile'));
+        $hlp = plugin_load('helper', 'oauth');
+        $liquid_core_url = $hlp->getConf('liquid-core-url');
+        $result = $JSON->decode($this->oAuth->request($liquid_core_url . '/accounts/profile'));
 
         $data['user'] = $result['login'];
         $data['mail'] = $result['login'] . '@localhost';

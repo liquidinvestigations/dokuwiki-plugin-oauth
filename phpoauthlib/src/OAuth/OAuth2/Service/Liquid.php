@@ -16,12 +16,16 @@ class Liquid extends AbstractService
 
     public function getAuthorizationEndpoint()
     {
-        return new Uri('http://liquid.example.org/o/authorize/');
+        $hlp = plugin_load('helper', 'oauth');
+        $liquid_core_url = $hlp->getConf('liquid-core-url');
+        return new Uri($liquid_core_url . '/o/authorize/');
     }
 
     public function getAccessTokenEndpoint()
     {
-        return new Uri('http://liquid.example.org/o/token/');
+        $hlp = plugin_load('helper', 'oauth');
+        $liquid_core_url = $hlp->getConf('liquid-core-url');
+        return new Uri($liquid_core_url . '/o/token/');
     }
 
     protected function getAuthorizationMethod()
